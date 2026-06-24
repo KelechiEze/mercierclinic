@@ -2,6 +2,11 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Star, Shield, ArrowRight, Award, ArrowUpRight, Sparkles, Clock, Compass } from 'lucide-react';
 
+import heroOne from './assets/hero_adjustment_one_1782245424393.jpg';
+import heroTwo from './assets/hero_clinic_interior_1782245440403.jpg';
+import heroThree from './assets/hero_happy_mobility_1782245456030.jpg';
+import heroFour from './assets/hero_chiro_consultation_1782245469662.jpg';
+
 import Navbar from './components/Navbar';
 import BookingModal from './components/BookingModal';
 import AboutModal from './components/AboutModal';
@@ -16,10 +21,10 @@ import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 
 const HERO_IMAGES = [
-  `${import.meta.env.BASE_URL}images/hero_adjustment_one_1782245424393.jpg`,
-  `${import.meta.env.BASE_URL}images/hero_clinic_interior_1782245440403.jpg`,
-  `${import.meta.env.BASE_URL}images/hero_happy_mobility_1782245456030.jpg`,
-  `${import.meta.env.BASE_URL}images/hero_chiro_consultation_1782245469662.jpg`
+  heroOne,
+  heroTwo,
+  heroThree,
+  heroFour
 ];
 
 export default function App() {

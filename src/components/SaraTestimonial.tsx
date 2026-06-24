@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Star, Sparkles } from 'lucide-react';
+import saraImage from '../assets/patient_sara_chiro_1782245520252.jpg';
 
 export default function SaraTestimonial() {
   const tags = ['Sciatica Care', 'Spinal adjustment', 'Myofascial Therapy'];
@@ -26,7 +27,7 @@ export default function SaraTestimonial() {
               transition={{ duration: 0.4 }}
             >
               <img
-                src={`${import.meta.env.BASE_URL}images/patient_sara_chiro_1782245520252.jpg`}
+                src={saraImage}
                 alt="Sara, Chiropractic Patient"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
                 referrerPolicy="no-referrer"

@@ -2,6 +2,16 @@ import { motion } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { DENTISTS } from '../data';
 
+import drMercierImg from '../assets/dr_douglas_mercier_1782245484316.jpg';
+import drChenImg from '../assets/dentist_michael_1782241708510.jpg';
+import drRossImg from '../assets/dentist_tracy_1782241692402.jpg';
+
+const dentistImages: Record<string, string> = {
+  'dr-mercier': drMercierImg,
+  'dr-chen': drChenImg,
+  'dr-ross': drRossImg,
+};
+
 interface DentalExpertsProps {
   onDentistSelect: (dentistId: string) => void;
 }
@@ -24,45 +34,48 @@ export default function DentalExperts({ onDentistSelect }: DentalExpertsProps) {
 
       {/* Grid of Specialists */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {experts.map((expert, idx) => (
-          <motion.div
-            key={expert.id}
-            onClick={() => onDentistSelect(expert.id)}
-            className="group bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col justify-between"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: idx * 0.15, ease: "easeOut" }}
-            whileHover={{ y: -4 }}
-          >
-            {/* Image Box */}
-            <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-50">
-              <img
-                src={expert.image}
-                alt={expert.name}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-
-            {/* Profile Info */}
-            <div className="p-5 flex items-center justify-between gap-4 border-t border-gray-50 bg-white">
-              <div className="space-y-1">
-                <h3 className="font-display font-bold text-[15px] sm:text-base text-gray-900 group-hover:text-[#15803d] transition-colors duration-300">
-                  {expert.name}
-                </h3>
-                <p className="text-xs text-gray-400 font-medium font-sans">
-                  {expert.role}
-                </p>
+        {experts.map((expert, idx) => {
+          const resolvedImage = dentistImages[expert.id] || expert.image;
+          return (
+            <motion.div
+              key={expert.id}
+              onClick={() => onDentistSelect(expert.id)}
+              className="group bg-white rounded-3xl border border-gray-100 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 cursor-pointer flex flex-col justify-between"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: idx * 0.15, ease: "easeOut" }}
+              whileHover={{ y: -4 }}
+            >
+              {/* Image Box */}
+              <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-50">
+                <img
+                  src={resolvedImage}
+                  alt={expert.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-103"
+                  referrerPolicy="no-referrer"
+                />
               </div>
 
-              {/* Float Arrow button */}
-              <div className="w-8 h-8 rounded-full bg-slate-50 text-gray-400 group-hover:bg-[#15803d]/10 group-hover:text-[#15803d] flex items-center justify-center transition-all duration-300 shrink-0">
-                <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              {/* Profile Info */}
+              <div className="p-5 flex items-center justify-between gap-4 border-t border-gray-50 bg-white">
+                <div className="space-y-1">
+                  <h3 className="font-display font-bold text-[15px] sm:text-base text-gray-900 group-hover:text-[#15803d] transition-colors duration-300">
+                    {expert.name}
+                  </h3>
+                  <p className="text-xs text-gray-400 font-medium font-sans">
+                    {expert.role}
+                  </p>
+                </div>
+
+                {/* Float Arrow button */}
+                <div className="w-8 h-8 rounded-full bg-slate-50 text-gray-400 group-hover:bg-[#15803d]/10 group-hover:text-[#15803d] flex items-center justify-center transition-all duration-300 shrink-0">
+                  <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </div>
               </div>
-            </div>
-          </motion.div>
-        ))}
+            </motion.div>
+          );
+        })}
       </div>
 
       {/* Underneath Message & Action */}

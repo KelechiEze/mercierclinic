@@ -4,6 +4,16 @@ import { X, Calendar, User, Clock, CheckCircle2, Star, Sparkles, ChevronLeft } f
 import { DENTISTS, SERVICES } from '../data';
 import { Appointment } from '../types';
 
+import drMercierImg from '../assets/dr_douglas_mercier_1782245484316.jpg';
+import drChenImg from '../assets/dentist_michael_1782241708510.jpg';
+import drRossImg from '../assets/dentist_tracy_1782241692402.jpg';
+
+const dentistImages: Record<string, string> = {
+  'dr-mercier': drMercierImg,
+  'dr-chen': drChenImg,
+  'dr-ross': drRossImg,
+};
+
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -185,7 +195,7 @@ export default function BookingModal({ isOpen, onClose, onBookingSuccess }: Book
                       <span className="text-[11px] text-gray-400 font-medium block">SPECIALIST</span>
                       <div className="flex items-center gap-2">
                         <img
-                          src={selectedDentist.image}
+                          src={dentistImages[selectedDentist.id] || selectedDentist.image}
                           alt={selectedDentist.name}
                           className="w-5 h-5 rounded-full object-cover border border-white/20"
                           referrerPolicy="no-referrer"
@@ -339,7 +349,7 @@ export default function BookingModal({ isOpen, onClose, onBookingSuccess }: Book
                           }`}
                         >
                           <img
-                            src={dentist.image}
+                            src={dentistImages[dentist.id] || dentist.image}
                             alt={dentist.name}
                             className="w-12 h-12 rounded-xl object-cover shrink-0 border border-gray-100"
                             referrerPolicy="no-referrer"

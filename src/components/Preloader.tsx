@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
+import logoIcon from '../assets/logo_icon_1782246015172.jpg';
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -52,7 +53,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
         >
           <img
-            src={`${import.meta.env.BASE_URL}images/logo_icon_1782246015172.jpg`}
+            src={logoIcon}
             alt="Mercier Chiropractic Logo"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

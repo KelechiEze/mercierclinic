@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
+import promoImage from '../assets/promo_signup_wellness_1782245500504.jpg';
 
 interface PromoBannerProps {
   onBookClick: () => void;
@@ -36,7 +37,7 @@ export default function PromoBanner({ onBookClick }: PromoBannerProps) {
               transition={{ duration: 0.4 }}
             >
               <img
-                src={`${import.meta.env.BASE_URL}images/promo_signup_wellness_1782245500504.jpg`}
+                src={promoImage}
                 alt="Mercier Chiropractic Treatment Room"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-103"
                 referrerPolicy="no-referrer"

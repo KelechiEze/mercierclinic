@@ -1,6 +1,16 @@
 import { Star, GraduationCap, Calendar } from 'lucide-react';
 import { DENTISTS } from '../data';
 
+import drMercierImg from '../assets/dr_douglas_mercier_1782245484316.jpg';
+import drChenImg from '../assets/dentist_michael_1782241708510.jpg';
+import drRossImg from '../assets/dentist_tracy_1782241692402.jpg';
+
+const dentistImages: Record<string, string> = {
+  'dr-mercier': drMercierImg,
+  'dr-chen': drChenImg,
+  'dr-ross': drRossImg,
+};
+
 interface DentistGridProps {
   onDentistSelect: (dentistId: string) => void;
 }
@@ -23,23 +33,25 @@ export default function DentistGrid({ onDentistSelect }: DentistGridProps) {
 
       {/* Grid of Dentist Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {DENTISTS.map((dentist) => (
-          <div
-            key={dentist.id}
-            className="group rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between"
-          >
-            {/* Image container */}
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
-              <img
-                src={dentist.image}
-                alt={dentist.name}
-                className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute top-4 right-4 bg-white/95 backdrop-blur px-2.5 py-1 rounded-xl flex items-center gap-1 text-xs font-semibold text-amber-500 shadow-sm">
-                <Star className="w-3.5 h-3.5 fill-current" /> {dentist.rating}
+        {DENTISTS.map((dentist) => {
+          const resolvedImage = dentistImages[dentist.id] || dentist.image;
+          return (
+            <div
+              key={dentist.id}
+              className="group rounded-3xl bg-white border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between"
+            >
+              {/* Image container */}
+              <div className="relative aspect-[4/3] w-full overflow-hidden bg-gray-100">
+                <img
+                  src={resolvedImage}
+                  alt={dentist.name}
+                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur px-2.5 py-1 rounded-xl flex items-center gap-1 text-xs font-semibold text-amber-500 shadow-sm">
+                  <Star className="w-3.5 h-3.5 fill-current" /> {dentist.rating}
+                </div>
               </div>
-            </div>
 
             {/* Profile Content */}
             <div className="p-5 flex-1 flex flex-col justify-between">
@@ -75,7 +87,8 @@ export default function DentistGrid({ onDentistSelect }: DentistGridProps) {
               </div>
             </div>
           </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

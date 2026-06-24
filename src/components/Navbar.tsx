@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, Menu, X } from 'lucide-react';
+import logoIcon from '../assets/logo_icon_1782246015172.jpg';
 
 interface NavbarProps {
   onBookClick: () => void;
@@ -63,7 +64,7 @@ export default function Navbar({ onBookClick, onAboutClick }: NavbarProps) {
           >
             <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-100 flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105 shadow-xs">
               <img
-                src={`${import.meta.env.BASE_URL}images/logo_icon_1782246015172.jpg`}
+                src={logoIcon}
                 alt="Mercier Chiropractic Logo"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
