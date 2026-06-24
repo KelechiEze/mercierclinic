@@ -10,7 +10,7 @@ import { DENTISTS } from '../data';
 // ✅ With Unsplash URLs for professional headshots:
 const drMercierImg = "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=1000&fit=crop&crop=face";
 const drChenImg = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&h=1000&fit=crop&crop=face";
-const drRossImg = "https://images.unsplash.com/photo-1594824476967-48c8b9642738?w=800&h=1000&fit=crop&crop=face";
+const drRossImg = "https://kelechieze.wordpress.com/wp-content/uploads/2026/06/jsk.jpeg";
 
 const dentistImages: Record<string, string> = {
   'dr-mercier': drMercierImg,
