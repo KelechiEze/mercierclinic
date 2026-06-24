@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calendar, Menu, X } from 'lucide-react';
-import logoIcon from '../assets/logo_icon_1782246015172.jpg';
+
+// ✅ FIX: Replace this broken import:
+// import logoIcon from '../assets/logo_icon_1782246015172.jpg';
+
+// ✅ With this:
+const logoIcon = "💪"; // Use any emoji or icon
+
+// OR if you want a real image, use this:
+// const logoIcon = "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=80&h=80&fit=crop&crop=center";
 
 interface NavbarProps {
   onBookClick: () => void;
@@ -28,7 +36,7 @@ export default function Navbar({ onBookClick, onAboutClick }: NavbarProps) {
     setMobileMenuOpen(false);
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 90; // offset for sticky navbar
+      const offset = 90;
       const bodyRect = document.body.getBoundingClientRect().top;
       const elementRect = element.getBoundingClientRect().top;
       const elementPosition = elementRect - bodyRect;
@@ -63,12 +71,17 @@ export default function Navbar({ onBookClick, onAboutClick }: NavbarProps) {
             className="flex items-center cursor-pointer group"
           >
             <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-100 flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105 shadow-xs">
-              <img
-                src={logoIcon}
-                alt="Mercier Chiropractic Logo"
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+              {/* ✅ FIX: Change from img to span for emoji */}
+              {typeof logoIcon === 'string' && logoIcon.startsWith('http') ? (
+                <img
+                  src={logoIcon}
+                  alt="Mercier Chiropractic Logo"
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              ) : (
+                <span className="text-xl">{logoIcon}</span>
+              )}
             </div>
           </div>
 
