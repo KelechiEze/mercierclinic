@@ -2,10 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Star, Shield, ArrowRight, Award, ArrowUpRight, Sparkles, Clock, Compass } from 'lucide-react';
 
-import heroOne from './assets/hero_adjustment_one_1782245424393.jpg';
-import heroTwo from './assets/hero_clinic_interior_1782245440403.jpg';
-import heroThree from './assets/hero_happy_mobility_1782245456030.jpg';
-import heroFour from './assets/hero_chiro_consultation_1782245469662.jpg';
+// ✅ FIX: Use direct Unsplash URLs instead of local imports
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&h=800&fit=crop",
+  "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=1200&h=800&fit=crop",
+  "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1200&h=800&fit=crop",
+  "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1200&h=800&fit=crop"
+];
 
 import Navbar from './components/Navbar';
 import BookingModal from './components/BookingModal';
@@ -20,13 +23,6 @@ import PromoBanner from './components/PromoBanner';
 import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 
-const HERO_IMAGES = [
-  heroOne,
-  heroTwo,
-  heroThree,
-  heroFour
-];
-
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [currentHeroBgIndex, setCurrentHeroBgIndex] = useState(0);
@@ -34,7 +30,6 @@ export default function App() {
   const [aboutModalOpen, setAboutModalOpen] = useState(false);
   const [refreshBookings, setRefreshBookings] = useState(0);
 
-  // States to hold preselected dentist or service for booking
   const [preselectedService, setPreselectedService] = useState<string>('');
   const [preselectedDentist, setPreselectedDentist] = useState<string>('');
 
@@ -50,7 +45,6 @@ export default function App() {
   }, [loading]);
 
   useEffect(() => {
-    // Background slideshow interval of 5 seconds
     const interval = setInterval(() => {
       setCurrentHeroBgIndex((prev) => (prev + 1) % HERO_IMAGES.length);
     }, 5000);
@@ -69,20 +63,17 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#f6f8f5] text-[#1a241b] relative pb-16 selection:bg-[#b6f05e] selection:text-[#0f172a]">
-      {/* Navbar */}
       <Navbar
         onBookClick={() => triggerBookingWithPreselection('consultation-full')}
         onAboutClick={() => setAboutModalOpen(true)}
       />
 
       <main className="pt-24 sm:pt-28 md:pt-32 space-y-6">
-        {/* Active Bookings Manager banner (shows up only if user has active bookings) */}
         <ActiveBookings
           refreshTrigger={refreshBookings}
           onCancelBooking={() => setRefreshBookings(prev => prev + 1)}
         />
 
-        {/* 1. HERO SECTION CONTAINER */}
         <section id="home" className="px-4 sm:px-6 md:px-8 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -90,13 +81,12 @@ export default function App() {
             transition={{ duration: 0.6, ease: 'easeOut' }}
             className="relative w-full rounded-[32px] md:rounded-[40px] overflow-hidden bg-[#0f1a11] min-h-[500px] sm:min-h-[560px] md:min-h-[640px] flex items-center shadow-xl border border-emerald-950/20"
           >
-            {/* Background Image Slideshow with Framer Motion Slide-out Transition */}
             <div className="absolute inset-0 z-0 overflow-hidden">
               <AnimatePresence initial={false}>
                 <motion.img
                   key={currentHeroBgIndex}
                   src={HERO_IMAGES[currentHeroBgIndex]}
-                  alt="Dentix Restorative Space"
+                  alt="Chiropractic Care"
                   className="absolute inset-0 w-full h-full object-cover object-[center_right] sm:object-right"
                   initial={{ x: '100%', opacity: 0 }}
                   animate={{ x: 0, opacity: 0.85 }}
@@ -105,25 +95,20 @@ export default function App() {
                   referrerPolicy="no-referrer"
                 />
               </AnimatePresence>
-              {/* Linear gradient overlay covering left-hand side for text contrast */}
               <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 sm:via-black/65 to-transparent z-10 pointer-events-none" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0f1a11]/95 via-transparent to-transparent z-10 sm:hidden pointer-events-none" />
             </div>
 
-            {/* Content (Z-INDEX 20) */}
             <div className="relative z-20 max-w-2xl px-6 sm:px-10 md:px-14 py-16 sm:py-20 text-white flex flex-col justify-between h-full">
               <div className="space-y-6 sm:space-y-8">
-                {/* Title */}
                 <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-[56px] leading-[1.05] tracking-tight text-white max-w-lg">
                   Live Life Without the Ache.
                 </h1>
 
-                {/* Subtitle */}
                 <p className="font-sans text-[13.5px] sm:text-[15px] leading-relaxed text-gray-300 max-w-md">
                   Get expert, personalized chiropractic care in Senatobia to relieve chronic pain, fix stiff joints, and restore your natural mobility today.
                 </p>
 
-                {/* Main Action Button */}
                 <div className="space-y-3">
                   <button
                     onClick={() => triggerBookingWithPreselection('consultation-full')}
@@ -140,7 +125,6 @@ export default function App() {
                 </div>
               </div>
 
-              {/* Bottom Group (Avatars & Google Rating) */}
               <div className="mt-14 sm:mt-20 flex flex-wrap items-center gap-5 pt-6 border-t border-white/10">
                 <div className="flex -space-x-2.5">
                   {[
@@ -175,7 +159,6 @@ export default function App() {
             </div>
           </motion.div>
 
-          {/* TRUST RATING BADGE ROW */}
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
             <div className="flex items-center gap-3 bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-2xs hover:shadow-sm transition-all duration-300">
               <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-500 shrink-0">
@@ -209,38 +192,30 @@ export default function App() {
           </div>
         </section>
 
-
-        {/* 2. EXPERT DENTAL TREATMENTS SECTION */}
         <TreatmentsSection
           onServiceSelect={(id) => triggerBookingWithPreselection(id)}
         />
 
-        {/* 3. PATIENT TESTIMONIAL STORIES (SARA ACCURATE CLONE) */}
         <SaraTestimonial />
 
-        {/* 4. SPECIALISTS GRID SECTION */}
         <DentalExperts
           onDentistSelect={(id) => triggerBookingWithPreselection(undefined, id)}
         />
 
-        {/* 5. THREE VALUE CARDS SECTION */}
         <ValuePropsSection />
 
-        {/* 6. PATIENT CASE STUDIES SECTION */}
         <CaseStudiesSection />
 
-        {/* 7. PROMO SIGN UP BANNER */}
         <PromoBanner
           onBookClick={() => triggerBookingWithPreselection('consultation-full')}
         />
       </main>
 
-      {/* FOOTER */}
       <Footer
         onNavClick={(id) => {
           const element = document.getElementById(id);
           if (element) {
-            const offset = 90; // offset for sticky navbar
+            const offset = 90;
             const bodyRect = document.body.getBoundingClientRect().top;
             const elementRect = element.getBoundingClientRect().top;
             const elementPosition = elementRect - bodyRect;
@@ -255,7 +230,6 @@ export default function App() {
         onBookClick={() => triggerBookingWithPreselection('consultation-full')}
       />
 
-      {/* MODALS */}
       <AnimatePresence>
         {bookingModalOpen && (
           <BookingModal
@@ -279,7 +253,6 @@ export default function App() {
         )}
       </AnimatePresence>
 
-      {/* Preloader with 3s slide-up reveal curtain */}
       <AnimatePresence>
         {loading && (
           <Preloader onComplete={() => setLoading(false)} />
