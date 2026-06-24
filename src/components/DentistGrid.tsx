@@ -1,9 +1,15 @@
 import { Star, GraduationCap, Calendar } from 'lucide-react';
 import { DENTISTS } from '../data';
 
-import drMercierImg from '../assets/dr_douglas_mercier_1782245484316.jpg';
-import drChenImg from '../assets/dentist_michael_1782241708510.jpg';
-import drRossImg from '../assets/dentist_tracy_1782241692402.jpg';
+// ✅ FIX: Replace these broken imports:
+// import drMercierImg from '../assets/dr_douglas_mercier_1782245484316.jpg';
+// import drChenImg from '../assets/dentist_michael_1782241708510.jpg';
+// import drRossImg from '../assets/dentist_tracy_1782241692402.jpg';
+
+// ✅ With Unsplash URLs for professional headshots:
+const drMercierImg = "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=800&h=600&fit=crop&crop=face";
+const drChenImg = "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=800&h=600&fit=crop&crop=face";
+const drRossImg = "https://images.unsplash.com/photo-1594824476967-48c8b9642738?w=800&h=600&fit=crop&crop=face";
 
 const dentistImages: Record<string, string> = {
   'dr-mercier': drMercierImg,

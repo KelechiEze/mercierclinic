@@ -1,6 +1,16 @@
 import { motion } from 'motion/react';
 import { Star } from 'lucide-react';
-import promoImage from '../assets/promo_signup_wellness_1782245500504.jpg';
+
+// ✅ FIX: Replace this broken import:
+// import promoImage from '../assets/promo_signup_wellness_1782245500504.jpg';
+
+// ✅ With an Unsplash URL for a wellness/clinic image:
+const promoImage = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=600&fit=crop";
+
+// Other options:
+// const promoImage = "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=600&fit=crop";
+// const promoImage = "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop";
+// const promoImage = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=600&fit=crop";
 
 interface PromoBannerProps {
   onBookClick: () => void;

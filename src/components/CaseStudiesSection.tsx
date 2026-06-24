@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'motion/react';
-import patientRoberto from '../assets/patient_roberto_chiro_1782245545772.jpg';
-import patientMargaret from '../assets/patient_margaret_chiro_1782245561684.jpg';
-import patientWalter from '../assets/patient_walter_chiro_1782245578198.jpg';
+
+// ✅ Using Unsplash URLs for patient photos (no imports needed)
+const patientRoberto = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=1000&fit=crop&crop=face";
+const patientMargaret = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=1000&fit=crop&crop=face";
+const patientWalter = "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=800&h=1000&fit=crop&crop=face";
 
 interface CaseStudy {
   id: string;
@@ -85,7 +87,7 @@ export default function CaseStudiesSection() {
       name: 'Roberto',
       age: 34,
       treatment: 'Sciatica Adjustment Roadmap',
-      quote: '“They spent an hour on my consultation, scanned my spinal posture, and showed me exactly how alignment affects my daily pain. No pressure, just incredible relief.”',
+      quote: '"They spent an hour on my consultation, scanned my spinal posture, and showed me exactly how alignment affects my daily pain. No pressure, just incredible relief."',
       image: patientRoberto,
     },
     {
@@ -93,7 +95,7 @@ export default function CaseStudiesSection() {
       name: 'Margaret',
       age: 61,
       treatment: 'Spinal Decompression',
-      quote: '“I’d been putting off chiropractic care for years because I was nervous about adjustments. Dr. Mercier was incredibly gentle, walked me through every step, and now my chronic lower back pain is completely gone.”',
+      quote: '"I\'d been putting off chiropractic care for years because I was nervous about adjustments. Dr. Mercier was incredibly gentle, walked me through every step, and now my chronic lower back pain is completely gone."',
       image: patientMargaret,
     },
     {
@@ -101,7 +103,7 @@ export default function CaseStudiesSection() {
       name: 'Walter',
       age: 56,
       treatment: 'Cervical Alignment',
-      quote: '“I used to get severe daily tension headaches and neck stiffness from my desk job. After just a few regular adjustments here, I’m sleeping better and working pain-free.”',
+      quote: '"I used to get severe daily tension headaches and neck stiffness from my desk job. After just a few regular adjustments here, I\'m sleeping better and working pain-free."',
       image: patientWalter,
     }
   ];
