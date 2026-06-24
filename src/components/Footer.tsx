@@ -1,13 +1,7 @@
 import { Mail, Phone, MapPin, Clock, Instagram, Facebook, Linkedin } from 'lucide-react';
 
-// ✅ FIX: Replace this broken import:
-// import logoIcon from '../assets/logo_icon_1782246015172.jpg';
-
-// ✅ With this:
-const logoIcon = "💪"; // Use any emoji or icon
-
-// OR if you want a real image, use this:
-// const logoIcon = "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=80&h=80&fit=crop&crop=center";
+// ✅ Using the WordPress logo URL
+const logoIcon = "https://kelechieze.wordpress.com/wp-content/uploads/2026/06/kilp-removebg-preview.png";
 
 interface FooterProps {
   onNavClick: (sectionId: string) => void;
@@ -41,7 +35,6 @@ export default function Footer({ onNavClick, onBookClick }: FooterProps) {
         <div className="md:col-span-3 space-y-4">
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-100 flex items-center justify-center bg-white shadow-xs">
-              {/* ✅ FIX: Change from img to span for emoji */}
               {typeof logoIcon === 'string' && logoIcon.startsWith('http') ? (
                 <img
                   src={logoIcon}

@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import logoIcon from '../assets/logo_icon_1782246015172.jpg';
+
+// ✅ Using the WordPress logo URL
+const logoIcon = "https://kelechieze.wordpress.com/wp-content/uploads/2026/06/kilp-removebg-preview.png";
 
 interface PreloaderProps {
   onComplete: () => void;
@@ -52,12 +54,16 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
         >
-          <img
-            src={logoIcon}
-            alt="Mercier Chiropractic Logo"
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
+          {typeof logoIcon === 'string' && logoIcon.startsWith('http') ? (
+            <img
+              src={logoIcon}
+              alt="Mercier Chiropractic Logo"
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          ) : (
+            <span className="text-4xl">{logoIcon}</span>
+          )}
         </motion.div>
 
         {/* Minimalist modern progress bar */}
