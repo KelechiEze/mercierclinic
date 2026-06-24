@@ -83,7 +83,7 @@ export default function CaseStudiesSection() {
       age: 34,
       treatment: 'Sciatica Adjustment Roadmap',
       quote: '“They spent an hour on my consultation, scanned my spinal posture, and showed me exactly how alignment affects my daily pain. No pressure, just incredible relief.”',
-      image: '/images/patient_roberto_chiro_1782245545772.jpg',
+      image: `${import.meta.env.BASE_URL}images/patient_roberto_chiro_1782245545772.jpg`,
     },
     {
       id: 'margaret',
@@ -91,7 +91,7 @@ export default function CaseStudiesSection() {
       age: 61,
       treatment: 'Spinal Decompression',
       quote: '“I’d been putting off chiropractic care for years because I was nervous about adjustments. Dr. Mercier was incredibly gentle, walked me through every step, and now my chronic lower back pain is completely gone.”',
-      image: '/images/patient_margaret_chiro_1782245561684.jpg',
+      image: `${import.meta.env.BASE_URL}images/patient_margaret_chiro_1782245561684.jpg`,
     },
     {
       id: 'walter',
@@ -99,7 +99,7 @@ export default function CaseStudiesSection() {
       age: 56,
       treatment: 'Cervical Alignment',
       quote: '“I used to get severe daily tension headaches and neck stiffness from my desk job. After just a few regular adjustments here, I’m sleeping better and working pain-free.”',
-      image: '/images/patient_walter_chiro_1782245578198.jpg',
+      image: `${import.meta.env.BASE_URL}images/patient_walter_chiro_1782245578198.jpg`,
     }
   ];
 

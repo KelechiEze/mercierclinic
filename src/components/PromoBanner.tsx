@@ -36,7 +36,7 @@ export default function PromoBanner({ onBookClick }: PromoBannerProps) {
               transition={{ duration: 0.4 }}
             >
               <img
-                src="/images/promo_signup_wellness_1782245500504.jpg"
+                src={`${import.meta.env.BASE_URL}images/promo_signup_wellness_1782245500504.jpg`}
                 alt="Mercier Chiropractic Treatment Room"
                 className="w-full h-full object-cover transition-transform duration-700 hover:scale-103"
                 referrerPolicy="no-referrer"

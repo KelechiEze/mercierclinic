@@ -33,7 +33,7 @@ export default function Footer({ onNavClick, onBookClick }: FooterProps) {
           <div className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-9 h-9 rounded-full overflow-hidden border border-gray-100 flex items-center justify-center bg-white shadow-xs">
               <img
-                src="/images/logo_icon_1782246015172.jpg"
+                src={`${import.meta.env.BASE_URL}images/logo_icon_1782246015172.jpg`}
                 alt="Mercier Chiropractic Logo"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"

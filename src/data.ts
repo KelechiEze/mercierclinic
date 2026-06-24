@@ -5,7 +5,7 @@ export const DENTISTS: Dentist[] = [
     id: 'dr-mercier',
     name: 'Dr. Douglas Mercier, DC',
     role: 'Lead Chiropractic Physician & Founder',
-    image: '/images/dr_douglas_mercier_1782245484316.jpg',
+    image: `${import.meta.env.BASE_URL}images/dr_douglas_mercier_1782245484316.jpg`,
     specialty: 'Spinal Adjustments & Musculoskeletal Care',
     rating: 4.9,
     reviewsCount: 158,

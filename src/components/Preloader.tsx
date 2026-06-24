@@ -52,7 +52,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
           transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
         >
           <img
-            src="/images/logo_icon_1782246015172.jpg"
+            src={`${import.meta.env.BASE_URL}images/logo_icon_1782246015172.jpg`}
             alt="Mercier Chiropractic Logo"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

@@ -16,10 +16,10 @@ import Footer from './components/Footer';
 import Preloader from './components/Preloader';
 
 const HERO_IMAGES = [
-  '/images/hero_adjustment_one_1782245424393.jpg',
-  '/images/hero_clinic_interior_1782245440403.jpg',
-  '/images/hero_happy_mobility_1782245456030.jpg',
-  '/images/hero_chiro_consultation_1782245469662.jpg'
+  `${import.meta.env.BASE_URL}images/hero_adjustment_one_1782245424393.jpg`,
+  `${import.meta.env.BASE_URL}images/hero_clinic_interior_1782245440403.jpg`,
+  `${import.meta.env.BASE_URL}images/hero_happy_mobility_1782245456030.jpg`,
+  `${import.meta.env.BASE_URL}images/hero_chiro_consultation_1782245469662.jpg`
 ];
 
 export default function App() {
