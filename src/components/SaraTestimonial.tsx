@@ -1,6 +1,15 @@
 import { motion } from 'motion/react';
 import { Star, Sparkles } from 'lucide-react';
-import saraImage from '../assets/patient_sara_chiro_1782245520252.jpg';
+
+// ✅ FIX: Replace this broken import:
+// import saraImage from '../assets/patient_sara_chiro_1782245520252.jpg';
+
+// ✅ With this Unsplash URL (senior woman patient):
+const saraImage = "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&h=800&fit=crop&crop=face";
+
+// Other Unsplash options for patient photos:
+// const saraImage = "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=800&fit=crop&crop=face";
+// const saraImage = "https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=800&fit=crop&crop=face";
 
 export default function SaraTestimonial() {
   const tags = ['Sciatica Care', 'Spinal adjustment', 'Myofascial Therapy'];
@@ -56,14 +65,14 @@ export default function SaraTestimonial() {
 
               {/* Main Quote */}
               <h3 className="font-display font-medium text-2xl sm:text-3xl md:text-[34px] leading-snug tracking-tight text-white max-w-2xl">
-                “Super clean clinic and a very friendly staff. Dr. Mercier took time to listen, offered options, and made sure I was comfortable the whole visit.”
+                "Super clean clinic and a very friendly staff. Dr. Mercier took time to listen, offered options, and made sure I was comfortable the whole visit."
               </h3>
             </div>
 
             {/* Second Paragraph */}
             <div className="space-y-4">
               <p className="font-sans text-sm sm:text-base text-emerald-100/90 leading-relaxed max-w-xl">
-                “They didn’t rush anything. Every option was explained clearly, and the results speak for themselves.”
+                "They didn't rush anything. Every option was explained clearly, and the results speak for themselves."
               </p>
 
               {/* Author */}
